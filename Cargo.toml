@@ -1,0 +1,41 @@
+[package]
+name = "karyon"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+# async
+futures = "0.3.26"
+tokio = { version = "1.26.0", features = ["full"] }
+async-trait = "0.1.66"
+async-channel = "1.8.0"
+
+# network
+zeromq = "*"
+tarpc = { version = "0.31", features = ["tokio1"]}
+
+# util
+clap = { version="4.1.8", features= ["derive"]}
+serde = { version = "1.0.153", features = ["derive"] }
+log = "0.4.17"
+simplelog = "0.12.1"
+rand = "0.8.5"
+anyhow = "1.0.69"
+bincode = "1.3.3"
+ctrlc-async = "3.2.2"
+bytes = "1.4.0"
+
+[[bin]]
+name = "store"
+path = "src/store/main.rs"
+
+[[bin]]
+name = "proxy"
+path = "src/proxy/main.rs"
+
+[[bin]]
+name = "client"
+path = "src/client/main.rs"
